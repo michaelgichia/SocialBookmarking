@@ -11,7 +11,11 @@ module.exports = {
 					reject(err)
 					return
 				}
-				resolve(bookmarks)
+				var summaries = []
+				bookmarks.forEach(function(bookmark){
+					summaries.push(bookmark.summary())
+				})
+				resolve(summaries)
 			})
 		})
 	},
@@ -23,7 +27,7 @@ module.exports = {
 					reject(err)
 					return
 				}
-				resolve(bookmark)
+				resolve(bookmark.summary())
 			})
 		})
 	},
@@ -49,7 +53,7 @@ module.exports = {
 						return
 					}
 
-					resolve(bookmark)
+					resolve(bookmark.summary())
 				})
 			})
 

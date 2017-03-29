@@ -10,4 +10,18 @@ var BookMarkSchema = new Schema({
 	timestamp: {type: Date, default: Date.now}
 })
 
+BookMarkSchema.methods.summary = function(){
+	var summary = {
+		id: this._id.toString(),
+		profile: this.profile,
+		title: this.title,
+		url: this.url,
+		description: this.description,
+		image: this.image,
+		timestamp: this.timestamp
+	}
+
+	return summary	
+}
+
 module.exports = mongoose.model('BookMarkModel', BookMarkSchema)
