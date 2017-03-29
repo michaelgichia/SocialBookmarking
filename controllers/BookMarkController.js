@@ -1,5 +1,7 @@
 var Bookmark = require('../models/Bookmark')
 var Promise = require('bluebird')
+var superagent = require('superagent')
+var utils = require('../utils')
 
 module.exports = {
 	find: function(params) {
@@ -26,15 +28,31 @@ module.exports = {
 		})
 	},
 
-	create: function(params) {
+	create: function(params){
 		return new Promise(function(resolve, reject){
-			Bookmark.create(params, function(err, bookmark){
-				if(err){
+			superagent
+			.get(params.url)
+			.query(null)
+			.set('Accept', 'text/html')
+			.end(function(err, response){
+				if (err){
 					reject(err)
 					return
 				}
-				resolve(bookmark)
+
+				var html = response.text
+				var metaData = utils.Scraper.scrape(html, ['og:title', 'og:description', 'og:image', 'og:url'])
+
+				Bookmark.create(metaData, function(err, bookmark){
+					if (err){
+						reject(err)
+						return
+					}
+
+					resolve(bookmark)
+				})
 			})
+
 		})
 	}
 }
