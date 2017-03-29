@@ -3,11 +3,16 @@ var Promise = require('bluebird')
 var bcrypt = require('bcryptjs')
 
 module.exports = {
-	find: function(params) {
+	find: function(params, isRaw) {
 		return new Promise(function(resolve, reject){
 			Profile.find(params, function(err, profiles){
 				if(err){
 					reject(err)
+					return
+				}
+
+				if (isRaw){
+					resolve(profiles)
 					return
 				}
 
