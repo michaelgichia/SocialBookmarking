@@ -2,9 +2,61 @@ var express = require('express')
 var router = express.Router()
 var controllers = require('../controllers')
 var bcrypt = require('bcryptjs')
+var utils = require('../utils')
+
+router.get('/:action', function(req, res, next){
+	var action = req.params.action
+
+	if (action == 'logout'){ // log out
+		req.session.reset()
+		res.json({
+			confirmation: 'success'
+		})
+	}
+
+
+	if (action == 'currentuser'){ // check for a current user
+		if (req.session == null){
+			res.json({
+				confirmation: 'success',
+				message: 'User not logged in.'
+			})
+
+			return
+		} 
+
+		if (req.session.token == null){
+			res.json({
+				confirmation: 'success',
+				message: 'User not logged in.'
+			})
+
+			return
+		}
+
+		var token = req.session.token
+		utils.JWT.verify(token, process.env.TOKEN_SECRET)
+		.then(function(decode){
+			return controllers.profile.findById(decode.id)
+		})
+		.then(function(profile){
+			res.json({
+				confirmation: 'success',
+				profile: profile
+			})
+		})
+		.catch(function(err){
+			res.json({
+				confirmation: 'fail',
+				message: 'Invalid Token'
+			})
+
+			return
+		})
+	}
+})
 
 router.post('/login', function(req, res, next){
-
 	var credentials = req.body
 
 	controllers.profile
@@ -30,9 +82,14 @@ router.post('/login', function(req, res, next){
 			return
 		}
 
+		// create signed token
+		var token = utils.JWT.sign({id: profile._id}, process.env.TOKEN_SECRET)
+		req.session.token = token
+
 		res.json({
 			confirmation: 'success',
-			profile: profile.summary()
+			profile: profile.summary(),
+			token: token
 		})
 	})
 	.catch(function(err){

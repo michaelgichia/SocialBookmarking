@@ -1,7 +1,9 @@
 var Scraper = require('./Scraper')
+var JWT = require('./JWT')
 
 module.exports = {
 
-	Scraper: Scraper
+	Scraper: Scraper,
+	JWT: JWT
 
 }
