@@ -54,4 +54,29 @@ router.get('/:resource/:id', function(req, res, next){
 	})
 })
 
+router.post('/:resource', function(req, res, next){
+	var resource = req.params.resource
+	var controller = controllers[resource]
+	if(controller == null) {
+		res.json({
+			confirmation: 'failed',
+			message: 'Resource '+resource+' Not Found!'
+		})
+		return
+	}
+	controller.create(req.body)
+	.then(function(result){
+		res.json({
+			confirmation: 'success',
+			result: result
+		})
+	})
+	.catch(function(err){
+		res.json({
+			confirmation: 'failed',
+			message: 'Resource '+resource+' Not Saved!'
+		})
+	})
+})
+
 module.exports = router
