@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from './NavBar'
+import {Profiles} from '../containers'
 
 class Home extends Component {
 
@@ -8,16 +9,16 @@ class Home extends Component {
 			<div>
 				<NavBar />
 				<div className="row">
-					<div className="col-md-3" style={{background:'#f9f9f9'}}>
-						Left Side
+					<div className="col-xs-3" style={{background:'#f9f9f9'}}>
+						<Profiles />
 					</div>
 
-					<div className="col-md-6">
+					<div className="col-xs-6">
 						Middle
 
 					</div>
 
-					<div className="col-md-3" style={{background:'#f9f9f9'}}>
+					<div className="col-xs-3" style={{background:'#f9f9f9'}}>
 						Right
 
 					</div>

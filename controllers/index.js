@@ -2,6 +2,6 @@ var ProfileController = require('./ProfileController')
 var BookMarkController = require('./BookMarkController')
 
 module.exports = {
-	profile: ProfileController,
+	profiles: ProfileController,
 	bookmark: BookMarkController
 }
