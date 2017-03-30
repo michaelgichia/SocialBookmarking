@@ -6,6 +6,7 @@ npm-debug.log*
 #steps
 .steps.txt
 
+*public/
 # Runtime data
 pids
 *.pid
