@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
-import TextField from 'material-ui/TextField';
+import {connect} from 'react-redux'
+import actions from '../actions'
+import {TextField, RaisedButton} from 'material-ui'
 import {APIManager} from '../utils'
+import { bindActionCreators } from 'redux'
 
-export default class SignUp extends Component{
-	constructor(){
-		super()
+class SignUp extends Component{
+	constructor(props){
+		super(props)
 		this.state = {
 			visitor: {
 				firstName: '',
@@ -26,11 +29,23 @@ export default class SignUp extends Component{
 
 	register = () => {
 		APIManager.post('/api/profiles', this.state.visitor, (err, response) => {
-			console.log(response)		
+			if(err){
+				let msg = err.message || err
+				alert(msg)
+				return
+			}
+			this.props.actions.profileCreated(response.result)
 		})
 	}
 
 	render(){
+		const hintStyle = {
+			fonstSize: 10,
+			fontWeight: 300,
+			marginTop: 0,
+			color: "#00bcd4",
+			backgroundColor: "#ffffff"
+		}
 		return(
 			<div>
 				<h4>Register</h4>
@@ -39,25 +54,41 @@ export default class SignUp extends Component{
 			      hintText="First Name"
 			      id="firstName"
 			      onChange={this.handleChange}
-			    /><br />
+			      hintStyle={hintStyle}
+			    />
 					<TextField
 			      hintText="Last Name"
 			      id="lastName"
 			      onChange={this.handleChange}
-			    /><br />
+			      hintStyle={hintStyle}
+			    />
 					<TextField
 			      hintText="Email"
 			      id="email"
 			      onChange={this.handleChange}
-			    /><br />
+			      hintStyle={hintStyle}
+			    />
 					<TextField
 			      hintText="Password"
 			      id="password"
 			      onChange={this.handleChange}
-			    /><br />		
-					<button onClick={this.register}>Register</button>
+			      hintStyle={hintStyle}
+			    /><br/>
+			    <RaisedButton
+			    	label="Register"
+			    	primary={true}
+			    	onClick={this.register}
+			    />
 				</div>
 			</div>
 		)
 	}
 }
+
+const stateToProps  = (state) => ({state})
+
+const dispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(actions, dispatch)
+})
+
+export default connect(stateToProps, dispatchToProps)(SignUp)
