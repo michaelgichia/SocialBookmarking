@@ -37,7 +37,7 @@ router.get('/:action', function(req, res, next){
 		var token = req.session.token
 		utils.JWT.verify(token, process.env.TOKEN_SECRET)
 		.then(function(decode){
-			return controllers.profile.findById(decode.id)
+			return controllers.profiles.findById(decode.id)
 		})
 		.then(function(profile){
 			res.json({
@@ -56,10 +56,34 @@ router.get('/:action', function(req, res, next){
 	}
 })
 
+router.post('/register', function(req, res, next){
+	var credentials = req.body
+
+	controllers.profiles
+	.create(credentials)
+	.then(function(profile){
+		// create signed token
+		var token = utils.JWT.sign({id: profile.id}, process.env.TOKEN_SECRET)
+		req.session.token = token
+
+		res.json({
+			confirmation: 'success',
+			profile: profile,
+			token: token
+		})
+	})
+	.catch(function(err){
+		res.json({
+			confirmation: 'fail',
+			message: err.message || err
+		})
+	})
+})
+
 router.post('/login', function(req, res, next){
 	var credentials = req.body
 
-	controllers.profile
+	controllers.profiles
 	.find({email: credentials.email}, true)
 	.then(function(profiles){
 		if (profiles.length == 0){
