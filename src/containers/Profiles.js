@@ -1,31 +1,23 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {APIManager} from '../utils'
 import {bindActionCreators} from 'redux'
 import actions from '../actions'
-import {APIManager} from '../utils'
 
 class Profiles extends Component{
-	constructor(props){
-		super(props)
-		this.state = {}
-	}
 
-	componentWillMount() {
+	componentDidMount(){
 		APIManager.get('/api/profiles', null, (err, response) => {
-			if(err){
-				let msg = err.message || err
-				alert(err)
-				return
-			}
 			const results = response.results
+
 			this.props.actions.profilesReceived(results)
 		})
 	}
 
 	renderProfiles = () => {
-		let {list} = this.props.state.profiles
+		let {profiles} = this.props
 		return(
-			list.map((profile, index) => (
+			profiles.map((profile, index) => (
 				<li key={index}>
 					<span>Name: {profile.firstName} {profile.lastName}</span>
 				</li>
@@ -42,7 +34,9 @@ class Profiles extends Component{
 	}
 }
 
-const stateToProps  = (state) => ({state})
+const stateToProps  = (state) => ({
+	profiles: state.profiles.list
+})
 
 const dispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actions, dispatch)
