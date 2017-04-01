@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from './NavBar'
-import {Profiles, SignUp} from '../containers'
+import {Profiles, SignUp, Bookmarks} from '../containers'
 
 class Home extends Component {
 
@@ -14,7 +14,7 @@ class Home extends Component {
 							<Profiles />
 						</div>
 						<div className="col-xs-5">
-							Middle
+							<Bookmarks />
 						</div>
 						<div className="col-xs-4">
 							<SignUp />
