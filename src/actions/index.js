@@ -8,7 +8,22 @@ export default {
 			profile: profile
 		}
 	},
-	
+
+	bookmarksReceived: (bookmarks, params) => {
+		return {
+			type: constants.BOOKMARKS_RECEIVED,
+			bookmarks: bookmarks,
+			params: params
+		}
+	},
+
+	bookmarkCreated: (bookmark) => {
+		return {
+			type: constants.BOOKMARK_CREATED,
+			bookmark: bookmark
+		}
+	},
+
 	profilesReceived: (profiles) => {
 		return {
 			type: constants.PROFILES_RECEIVED,
@@ -19,6 +34,13 @@ export default {
 	profileCreated: (profile) => {
 		return {
 			type: constants.PROFILE_CREATED,
+			profile: profile
+		}
+	},
+
+	profileSelected: (profile) => {
+		return {
+			type: constants.PROFILE_SELECTED,
 			profile: profile
 		}
 	}
