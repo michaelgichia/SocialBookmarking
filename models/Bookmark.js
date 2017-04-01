@@ -20,7 +20,6 @@ BookMarkSchema.methods.summary = function(){
 		image: this.image,
 		timestamp: this.timestamp
 	}
-
 	return summary	
 }
 
