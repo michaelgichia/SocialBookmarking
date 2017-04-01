@@ -53,7 +53,12 @@ module.exports = {
 				var html = response.text
 				var metaData = utils.Scraper.scrape(html, ['og:title', 'og:description', 'og:image', 'og:url'])
 
-				Bookmark.create(metaData, function(err, bookmark){
+				var keys = Object.keys(metaData)
+				keys.forEach(function(key, i){
+					params[key] = metaData[key]
+				})
+
+				Bookmark.create(params, function(err, bookmark){
 					if (err){
 						reject(err)
 						return
