@@ -5,6 +5,7 @@ import {TextField, RaisedButton} from 'material-ui'
 import {APIManager} from '../utils'
 import { bindActionCreators } from 'redux'
 import RegisterForm from '../components/RegisterForm'
+import LoginForm from '../components/LoginForm'
 
 class Account extends Component{
 	constructor(){
@@ -47,7 +48,7 @@ class Account extends Component{
 			this.props.actions.currentUserReceived(response.profile)
 		})
 	}
-	
+
 	render(){
 		const hintStyle = {
 			fonstSize: 10,
@@ -59,32 +60,15 @@ class Account extends Component{
 		return(
 			<div>
 				<RegisterForm
-					onClick={this.login}
+					onClick={this.register}
 					onChange={this.handleChange}
 					hintStyle={hintStyle}
 				/>
-				<div>
-					<h1></h1>
-					<h4>Login</h4>
-					<TextField
-			      hintText="Email"
-			      id="email"
-			      onChange={this.handleChange}
-			      hintStyle={hintStyle}
-			    />
-					<TextField
-			      hintText="Password"
-			      id="password"
-			      onChange={this.handleChange}
-			      hintStyle={hintStyle}
-			      type="password"
-			    /><br/>
-			    <RaisedButton
-			    	label="Login"
-			    	primary={true}
-			    	onClick={this.login}
-			    />	
-				</div>
+				<LoginForm
+					onChange={this.handleChange}
+					onClick={this.login}
+					hintStyle={hintStyle}
+				/>
 			</div>
 		)
 	}

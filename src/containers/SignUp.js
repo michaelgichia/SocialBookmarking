@@ -8,7 +8,7 @@ import DashBoard from './DashBoard'
 
 class SignUp extends Component{
 
-	componentDidMount(){
+	componentWillMount(){
 		APIManager.get('/account/currentuser', null, (err, response) => {
 			if (err){
 				alert(err)
