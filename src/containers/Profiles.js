@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {APIManager} from '../utils'
 import {bindActionCreators} from 'redux'
 import actions from '../actions'
+import Card from '../components/Card'
+
 
 class Profiles extends Component{
 
@@ -17,37 +19,32 @@ class Profiles extends Component{
 		this.props.actions.profileSelected(profile)
 	}
 
-	renderProfiles = () => {
-		let {profiles} = this.props
-		let name = null
-		return(
-			profiles.map((profile, i) => {
-				if (this.props.selected == null)
-					name = <a onClick={() => this.selectProfile(profile)} href="#">{ profile.firstName }</a>
-
-				else if (this.props.selected.id == profile.id)
-					name = <a onClick={() => this.selectProfile(profile)} href="#">
-										<strong style={{color:'red'}}>{ profile.firstName }</strong>
-									</a>
-				else
-					name = <a onClick={() => this.selectProfile(profile)} href="#">{ profile.firstName }</a>
-				return <li key={profile.id}>{name}</li>
-			})
-		)
-	}
+	renderProfiles = () => (
+		this.props.profiles.map((profile, i) => (
+			<li key={i}>
+				<a onClick={() => this.selectProfile(profile)} href="#">
+				{profile.firstName} {profile.lastName}
+				</a>
+			</li>
+		))
+	)
 
 	render(){
+		console.log(this.props)
 		return(
-			<ol>
-				{this.renderProfiles()}
-			</ol>
+			<div>
+				Bookmarks by :
+				<ol>
+					{this.renderProfiles()}
+				</ol>
+			</div>
 		)
 	}
 }
 
-const stateToProps  = (state) => ({
-	profiles: state.profiles.list,
-	selected: state.profiles.selected
+const stateToProps  = ({profiles}) => ({
+	profiles:profiles.list,
+	selected: profiles.selected
 })
 
 const dispatchToProps = (dispatch) => ({
@@ -55,3 +52,5 @@ const dispatchToProps = (dispatch) => ({
 })
 
 export default connect(stateToProps, dispatchToProps)(Profiles)
+
+		

@@ -2,8 +2,25 @@ import React, { Component } from 'react'
 import { APIManager } from '../utils'
 import { connect } from 'react-redux'
 import actions from '../actions'
+import Card from '../components/Card'
+
+const styles = {
+	ul: {
+		listStyleType: 'none'
+	},
+	li: {
+		marginTop: 10,
+		marginBottom: 10
+	}
+}
 
 class Bookmarks extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      expanded: false,
+    }
+  }
 
 	componentDidUpdate(){
 		const list = this.props.bookmarks[this.props.selected.id]
@@ -17,19 +34,32 @@ class Bookmarks extends Component {
 
 	}
 
+  handleToggle = (event, toggle) => {
+    this.setState({expanded: toggle})
+  }
+
+  renderBookmarks = (list) => ( 
+  	(list == null) ? null : list.map((bookmark, i) => {
+			return (
+				<li key={i} style={styles.li}>
+					<Card 
+			      title={bookmark.title}
+			      subtitle={bookmark.description}
+			      avatar={bookmark.image}
+						expanded={this.state.expanded}
+						onToggle={this.handleToggle}
+			    />
+				</li>
+			)
+		})
+	)
+
 	render(){
 		const list = (this.props.selected == null) ? null : this.props.bookmarks[this.props.selected.id]
 		return (
-			<div>
-				<h2>Bookmarks</h2>
-				<ol>
-					{ (list == null) ? null : list.map((bookmark, i) => {
-							return <li key={bookmark.id}>{bookmark.description}</li>
-						})
-					}
-				</ol>
-			</div>
-
+			<ul style={styles.ul}>
+				{this.renderBookmarks(list)}
+			</ul>
 		)
 	}
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import actions from '../actions'
 import {TextField, RaisedButton} from 'material-ui'
 import {APIManager} from '../utils'
@@ -48,28 +49,30 @@ class Account extends Component{
 			this.props.actions.currentUserReceived(response.profile)
 		})
 	}
-
 	render(){
 		const hintStyle = {
 			fonstSize: 10,
-			fontWeight: 300,
 			marginTop: 0,
-			color: "#00bcd4",
-			backgroundColor: "#ffffff"
 		}
 		return(
-			<div>
-				<RegisterForm
-					onClick={this.register}
-					onChange={this.handleChange}
-					hintStyle={hintStyle}
-				/>
-				<LoginForm
-					onChange={this.handleChange}
-					onClick={this.login}
-					hintStyle={hintStyle}
-				/>
-			</div>
+			<Grid>
+			    <Row>
+			      <Col xs={10} md={4} xsOffset={1}  mdOffset={1}>
+							<LoginForm
+								onChange={this.handleChange}
+								onClick={this.login}
+								hintStyle={hintStyle}
+							/>
+						</Col>
+			      <Col xs={10} md={4} xsOffset={1}  mdOffset={1}>
+							<RegisterForm
+								onClick={this.register}
+								onChange={this.handleChange}
+								hintStyle={hintStyle}
+							/>
+						</Col>
+			    </Row>
+			 </Grid>
 		)
 	}
 }

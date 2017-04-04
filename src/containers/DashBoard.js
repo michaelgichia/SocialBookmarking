@@ -4,6 +4,7 @@ import {TextField, RaisedButton} from 'material-ui'
 import { bindActionCreators } from 'redux'
 import actions from '../actions'
 import {APIManager} from '../utils'
+import Avatar from '../components/Avatar'
 
 class DashBoard extends Component{
 	constructor(){
@@ -37,23 +38,15 @@ class DashBoard extends Component{
 	}
 
 	render(){
+		const {currentUser} = this.props
 		return(
 			<div>
-				<h4>Welcome {this.props.currentUser.firstName}</h4><br/><br/>
-				<span>
-					<h5>Add a bookmark</h5>
-					<TextField
-			      hintText="www.example.com"
-			      type="text"
-			      value={this.state.link}
-			      onChange={this.handleChange}
-			    /><br/>
-			    <RaisedButton
-			    	label="Submit"
-			    	primary={true}
-			    	onClick={this.submitLink}
-			    />
-				</span>
+				<Avatar
+					currentUser={currentUser}
+					value={this.state.link}
+        	onChange={this.handleChange}
+        	onClick={this.submitLink}
+				/>
 	    </div>
 		)
 	}
