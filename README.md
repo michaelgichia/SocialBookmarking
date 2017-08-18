@@ -1,6 +1,6 @@
 # Firebase-Authentication
   ###### This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
- ##### The Challenge
+ ###### The Challenge
 The challenging part was to use an `observer` as recommended by firebase [here](https://firebase.google.com/docs/auth/web/manage-users). The `Observer`, to me looks like an event listener. Passing an observer as a callback (keeping in mind the structure of an event listener) to the `onEnter` hook provided `react-router 3` possed the ultimate challenge. 
 
 ##### How I solved it
@@ -43,8 +43,9 @@ This is the `firebase-authentication/src` folder.
 * [AuthRequired](#auth) - Higher Order Component for Proctecting pages and routes.
 
 ## Bootstrap our application
----
-We are going to use `create-react-app` to bootstrap our application.
+
+###### We are going to use `create-react-app` to bootstrap our application.
+
 ```sh
 $ create-react-app firebase-authentication
 ```
