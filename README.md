@@ -37,11 +37,11 @@
   1. [Setting up firebase](#setting-up-firebase)
   1. [Adding react router](#adding-react-route)
   1. [Adding pages to our application](#adding-pages-to-our-application)
-      1. WelcomePage - Landing Page.
-      1. LoginPage - User login.
-      1. RegisterPag - User registration.
-      1. Dashboard) - A user can only access this page after they are registered and signed in.
-      1. PageNotFound-not-found - 404 page.
+      1. [Welcome page](#welcome-page).
+      1. Login page - User login.
+      1. Register page - User registration.
+      1. Dashboard - A user can only access this page after they are registered and signed in.
+      1. Page not found page - 404 page.
   1. [Styling the application](#styling-the-application)
   1. [Authentication required](#authentication-required)
 
@@ -365,6 +365,8 @@
   ```
   </details>
 
+### Welcome page
+
   <details>
   <summary>WelcomePage source code</summary>
 
@@ -388,7 +390,8 @@
   </details>
 
   ## Styling the application
-
+  Lets add a few css for styling our application.
+  
   <details>
   <summary>index.css source code</summary>
 
