@@ -1,5 +1,5 @@
   # Firebase-Authentication
-  This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
+  :rocket: :rocket: This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
   
   ## The Challenge
   The challenging part was to use an `observer` as recommended by firebase [here](https://firebase.google.com/docs/auth/web/manage-users). The `Observer`, to me looks like an event listener. Passing an observer as a callback (keeping in mind the structure of an event listener) to the `onEnter` hook provided `react-router 3` possed the ultimate challenge. 
@@ -71,9 +71,9 @@
 
   On the same page, on top right, click `WEB SETUP`. These are the Credentials that we will need for application.
 
-  ### Setting up Firebase
-  ---
+  ## Setting up Firebase
   We will initialize firebase on this file. Create a `config` folder for the configurations(for sanity sakes).
+  
   ```sh
   $ mkdir src/config
   ```
@@ -495,7 +495,7 @@
   ```
   </details>
 
-  ### AuthRequired
+  ## AuthRequired
   As stated ealier, Higher Order Components(HOC) transforms a component to another component.
 
   HOC `AuthRequired` abstract the logic we use to check if user if signed in. Alternatively, we would have pass the logic on every `page` that is protected. This method goes againt the `DRY` principle.
