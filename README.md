@@ -495,7 +495,7 @@
   ```
   </details>
 
-  ## AuthRequired
+  ## Authentication required
   As stated ealier, Higher Order Components(HOC) transforms a component to another component.
 
   HOC `AuthRequired` abstract the logic we use to check if user if signed in. Alternatively, we would have pass the logic on every `page` that is protected. This method goes againt the `DRY` principle.
