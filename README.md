@@ -38,8 +38,8 @@
   1. [Adding react router](#adding-react-route)
   1. [Adding pages to our application](#adding-pages-to-our-application)
       1. [Welcome page](#welcome-page)
-      1. Login page(#login-page)
-      1. [Registration] page(#registration-page)
+      1. [Login page](#login-page)
+      1. [Registration page](#registration-page)
       1. [Dashboard](#dashboard)
       1. [Page not found page](#page-not-found-page)
   1. [Styling the application](#styling-the-application)
@@ -194,7 +194,7 @@
 
   We will not go indepth on the content of these pages.
 
-  ### Dashboard
+  ## Dashboard
   A user can only access this page after they are registered and signed in.
 
   <details>
@@ -219,7 +219,7 @@
   ```
   </details>
 
-### Login Page
+## Login Page
 User login.
 
   <details>
@@ -287,7 +287,7 @@ User login.
   ```
   </details>
 
-### Page not found page
+## Page not found page
 This is displayed when no route is matched.
 
   <details>
@@ -312,7 +312,7 @@ This is displayed when no route is matched.
   </details>
 
 
-### Registration page
+## Registration page
 User registration.
 
   <details>
@@ -377,7 +377,7 @@ User registration.
   ```
   </details>
 
-### Welcome page
+## Welcome page
 
   <details>
   <summary>WelcomePage source code</summary>
