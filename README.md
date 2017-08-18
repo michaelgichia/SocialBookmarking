@@ -1,5 +1,5 @@
   # Firebase-Authentication
-  :rocket: :rocket: This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
+  This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
   
   ## The Challenge
   The challenging part was to use an `observer` as recommended by firebase [here](https://firebase.google.com/docs/auth/web/manage-users). The `Observer`, to me looks like an event listener. Passing an observer as a callback (keeping in mind the structure of an event listener) to the `onEnter` hook provided `react-router 3` possed the ultimate challenge. 
@@ -43,7 +43,7 @@
       1. Dashboard) - A user can only access this page after they are registered and signed in.
       1. PageNotFound-not-found - 404 page.
   1. [Styling the application](#styling-the-application)
-  1. [AuthRequired](#authRequired) - Higher Order Component for Proctecting pages and routes.
+  1. [Authentication required](#authentication-required) - Higher Order Component for Proctecting pages and routes.
 
   ## Bootstrap our application
     
