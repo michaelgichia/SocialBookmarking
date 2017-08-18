@@ -30,18 +30,18 @@
   ```
   ## Index
 
-  1. [Bootstrap our application](#bootstrap)
-  1. [Get Firebase Credentials](#credentials)
-  1. [Setting up Firebase](#firebase-setup)
-  1. [Adding React-router](#react-router)
-  1. [Adding Pages to our application](#pages)
-      1. [WelcomePage](#welcome-page) - Landing Page.
-      1. [LoginPage](#login-page) - User login.
-      1. [RegisterPage](#register-page) - User registration.
-      1. [Dashboard](#dashboard) - A user can only access this page after they are registered and signed in.
-      1. [PageNotFound](#page-not-found) - 404 page.
-  1. [Styling the application](#styling)
-  1. [AuthRequired](#auth) - Higher Order Component for Proctecting pages and routes.
+  1. [Bootstrap our application](#bootstrap-our-application)
+  1. [Get firebase credentials](#get-firebase-credentials)
+  1. [Setting up firebase](#setting-up-firebase)
+  1. [Adding react router](#adding-react-route)
+  1. [Adding pages to our application](#adding-pages-to-our-application)
+      1. WelcomePage - Landing Page.
+      1. LoginPage - User login.
+      1. RegisterPag - User registration.
+      1. Dashboard) - A user can only access this page after they are registered and signed in.
+      1. PageNotFound-not-found - 404 page.
+  1. [Styling the application](#styling-the-application)
+  1. [AuthRequired](#authRequired) - Higher Order Component for Proctecting pages and routes.
 
   ## Bootstrap our application
 
@@ -191,8 +191,6 @@
   ## Adding Pages to our application
 
   We will not go indepth on the content of these pages.
-
-  ## AuthRequired
 
   <details>
   <summary>Dashboard Source Code</summary>
