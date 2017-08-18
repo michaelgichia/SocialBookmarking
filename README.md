@@ -37,11 +37,11 @@
   1. [Setting up firebase](#setting-up-firebase)
   1. [Adding react router](#adding-react-route)
   1. [Adding pages to our application](#adding-pages-to-our-application)
-      1. [Welcome page](#welcome-page).
-      1. Login page - User login.
-      1. Register page - User registration.
-      1. Dashboard - A user can only access this page after they are registered and signed in.
-      1. Page not found page - 404 page.
+      1. [Welcome page](#welcome-page)
+      1. Login page(#login-page)
+      1. [Registration] page(#registration-page)
+      1. [Dashboard](#dashboard)
+      1. [Page not found page](#page-not-found-page)
   1. [Styling the application](#styling-the-application)
   1. [Authentication required](#authentication-required)
 
@@ -194,6 +194,9 @@
 
   We will not go indepth on the content of these pages.
 
+  ### Dashboard
+  A user can only access this page after they are registered and signed in.
+
   <details>
   <summary>Dashboard Source Code</summary>
 
@@ -215,6 +218,9 @@
   export default AuthRequired(Dashboard);
   ```
   </details>
+
+### Login Page
+User login.
 
   <details>
   <summary>LoginPage source code</summary>
@@ -281,6 +287,9 @@
   ```
   </details>
 
+### Page not found page
+This is displayed when no route is matched.
+
   <details>
   <summary>PageNotFound source code</summary>
 
@@ -302,6 +311,9 @@
   ```
   </details>
 
+
+### Registration page
+User registration.
 
   <details>
   <summary>RegisterPage source code</summary>
