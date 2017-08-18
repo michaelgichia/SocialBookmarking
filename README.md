@@ -29,7 +29,7 @@ This is the `firebase-authentication/src` folder.
 
 ```
 ## Index
-* [ Bootstrap our application](#bootstrap)
+* [Bootstrap our application](#bootstrap)
 * [Get Firebase Credentials](#credentials)
 * [Setting up Firebase](#firebase-setup)
 * [Adding React-router](#react-router)
@@ -42,7 +42,7 @@ This is the `firebase-authentication/src` folder.
 * [Styling the application](#styling)
 * [AuthRequired](#auth) - Higher Order Component for Proctecting pages and routes.
 
-### Bootstrap our application
+## Bootstrap our application
 ---
 We are going to use `create-react-app` to bootstrap our application.
 ```sh
