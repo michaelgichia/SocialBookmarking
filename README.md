@@ -1,13 +1,15 @@
   # Firebase-Authentication
-    ###### This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
-  ###### The Challenge
+  This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
+  
+  ## The Challenge
   The challenging part was to use an `observer` as recommended by firebase [here](https://firebase.google.com/docs/auth/web/manage-users). The `Observer`, to me looks like an event listener. Passing an observer as a callback (keeping in mind the structure of an event listener) to the `onEnter` hook provided `react-router 3` possed the ultimate challenge. 
 
-  ##### How I solved it
+  ## How I solved it
   There several ways you could solve it but the cleanest way I found was using`Higher Order Component (HOC)`. HOC is an abstraction that allow us to define logic in one place and use it in any other component that is needed. In the simplest terms, is a function that accepts a component, and returns a new component that wraps the original.
-  ### The Application Structure
+  
+  ## The Application Structure
   This is the `firebase-authentication/src` folder.
-  ###
+  
   ```sh
   ├── App.js
   ├── App.test.js
@@ -44,8 +46,8 @@
   1. [AuthRequired](#authRequired) - Higher Order Component for Proctecting pages and routes.
 
   ## Bootstrap our application
-
-  ##### We are going to use `create-react-app` to bootstrap our application.
+    
+  We are going to use `create-react-app` to bootstrap our application.
 
   ```sh
   $ create-react-app firebase-authentication
