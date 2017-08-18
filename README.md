@@ -2,10 +2,10 @@
   This is application is for demonstrating one way of protecting React Pages or Routes in this case unless the user signed in.
   
   ## The Challenge
-  The challenging part was to use an `observer` as recommended by firebase [here](https://firebase.google.com/docs/auth/web/manage-users). The `Observer`, to me looks like an event listener. Passing an observer as a callback (keeping in mind the structure of an event listener) to the `onEnter` hook provided `react-router 3` possed the ultimate challenge. 
+  The challenging part was to use an `observer` as recommended by firebase [here](https://firebase.google.com/docs/auth/web/manage-users). The `Observer`, to me, looks like an event listener. Passing an observer as a callback (keeping in mind the structure of an event listener) to the `onEnter` hook provided `react-router 3` posed the ultimate challenge. 
 
   ## How I solved it
-  There several ways you could solve it but the cleanest way I found was using`Higher Order Component (HOC)`. HOC is an abstraction that allow us to define logic in one place and use it in any other component that is needed. In the simplest terms, is a function that accepts a component, and returns a new component that wraps the original.
+  There several ways you could solve it but the cleanest way I found was using`Higher Order Component (HOC)`. HOC is an abstraction that allows us to define logic in one place and use it in any other component that is needed. In the simplest terms, is a function that accepts a component, and returns a new component that wraps the original.
   
   ## The Application Structure
   This is the `firebase-authentication/src` folder.
@@ -52,7 +52,7 @@
   ```sh
   $ create-react-app firebase-authentication
   ```
-  Lets make sure everything works at this point before we proceed.
+  Let's make sure everything works at this point before we proceed.
   ```sh
   $ cd firebase-authentication && yarn start
   ```
@@ -63,13 +63,13 @@
   ```
   ## Get Firebase Credentials
 
-  You need a Google account to log to firebase console. If you have a Google account the log in to firebase console via https://console.firebase.google.com/u/1/
+  You need a Google account to log to firebase console. If you have a Google account the login to firebase console via https://console.firebase.google.com/u/1/
 
-  Add project, in our case the project name is firebase-authentication. On the side navbar, click `Authentication` and set up sign in method.
+  Add project, in our case the project name is firebase-authentication. On the side navbar, click `Authentication` and set up thensign in method.
 
   Select sign up, choose one of the Auth services and `enable` it. There are several Auth services to choose from but we will use `EmailAuthProvider`.
 
-  On the same page, on top right, click `WEB SETUP`. These are the Credentials that we will need for application.
+  On the same page, on the top right, click `WEB SETUP`. These are the Credentials that we will need for the application.
 
   ## Setting up Firebase
   We will initialize firebase on this file. Create a `config` folder for the configurations(for sanity sakes).
@@ -81,7 +81,7 @@
   ```sh
   $ touch src/config/firebaseConstants.js
   ```
-  Your file should look like this. Provide your firebase credintials and change the below values.
+  Your file should look like this. Provide your firebase credentials and change the below values.
 
   `src/config/firebaseConstants.js`
   ```javascript
@@ -192,7 +192,7 @@
   ```
   ## Adding Pages to our application
 
-  We will not go indepth on the content of these pages.
+  We will not go in-depth on the content of these pages.
 
   ## Dashboard
   A user can only access this page after they are registered and signed in.
@@ -223,7 +223,7 @@
 User login.
 
   <details>
-  <summary>LoginPage source code</summary>
+  <summary>Login page source code</summary>
 
   ```jsx
   import React from "react";
@@ -402,7 +402,7 @@ User registration.
   </details>
 
   ## Styling the application
-  Lets add a few css for styling our application.
+  Let's add a few CSS for styling our application.
   
   <details>
   <summary>index.css source code</summary>
@@ -511,13 +511,13 @@ User registration.
   </details>
 
   ## Authentication required
-  As stated ealier, Higher Order Components(HOC) transforms a component to another component.
+  As stated earlier, Higher Order Components(HOC) transforms a component to another component.
 
-  HOC `AuthRequired` abstract the logic we use to check if user if signed in. Alternatively, we would have pass the logic on every `page` that is protected. This method goes againt the `DRY` principle.
+  HOC `AuthRequired` abstract the logic we use to check if the user is signed in. Alternatively, we would have passed the logic on every `page` that is protected. This method goes against the `DRY` principle.
 
   `Create-react-app` does not allow install `babel-plugin-transform-decorators-legacy` unless you eject. `babel-plugin-transform-decorators-legacy` allow us to use decorators instead of calling the `wrapper component` with the `HOC`.
 
-  Incase you want to use `decorators`. This is how you use the HOC to protect the pages.
+  In case you want to use `decorators`. This is how you use the HOC to protect the pages.
 
   `With decorators`
   ```jsx
