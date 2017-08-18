@@ -43,7 +43,7 @@
       1. Dashboard) - A user can only access this page after they are registered and signed in.
       1. PageNotFound-not-found - 404 page.
   1. [Styling the application](#styling-the-application)
-  1. [Authentication required](#authentication-required) - Higher Order Component for Proctecting pages and routes.
+  1. [Authentication required](#authentication-required)
 
   ## Bootstrap our application
     
